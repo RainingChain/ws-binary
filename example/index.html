@@ -1,0 +1,26 @@
+<script src="BinSON.js"></script>
+<script src="SchemaEncoder.js"></script>
+<script src="ws-binary.js"></script>
+<script src="shared.js"></script>
+
+<script>
+
+var socket = wsBinary.connect('ws://localhost:4000',{
+	encoder:BinSON
+});
+
+socket.on(MSG.newMonster,function(rawData){
+	var data = monsterSchema.decode(rawData);
+	var bin = socket.encoder.encode(rawData);
+	console.log('binary:',bin,bin.length + ' bytes');
+	console.log('schema packing:',rawData);
+	console.log('if sent as json:',JSON.stringify(data),JSON.stringify(data).length + ' bytes');
+	console.log('data:',data);
+});
+
+socket.on(MSG.any,function(data){
+	console.log(data);
+});
+	
+</script>
+

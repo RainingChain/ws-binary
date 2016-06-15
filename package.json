@@ -1,0 +1,32 @@
+{
+    "name": "BinSON",
+    "version": "0.0.1",
+    "description": "Binary Buffer Encoder for Javascript.",
+    "homepage": "https://github.com/rainingchain/schema-encoder",
+    "author": "Samuel Magnan <rainingchain@gmail.com>",
+	"contributors":[
+		"Ivo Wetzel <ivo.wetzel@googlemail.com>"
+	],
+    "keywords": [
+        "encoder",
+        "binary",
+        "javascript"
+    ],
+    
+    "engines" : {
+        "node": ">=0.8",
+        "npm": ">=1"
+    },
+    
+    "main": "bin/BinSON",
+    
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/rainingchain/BinSON.git"
+    },
+    
+    "licenses": [{
+        "type": "MIT",
+    }]
+
+}
