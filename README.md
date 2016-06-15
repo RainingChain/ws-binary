@@ -1,17 +1,22 @@
 Binary WebSocket Wrapper
 ==================================================
 
-This library is a wrapper around [websocket](https://www.npmjs.com/package/websocket).
+**ws-binary** is a wrapper around [websocket](https://www.npmjs.com/package/websocket).
 
-The `ws-binary` API is similar to [Socket.IO](http://socket.io/) API.
+This library's API is similar to [Socket.IO](http://socket.io/) API.
 
-However, while Socket.IO focuses on reliability and retro-compabitibility, `ws-binary` focuses on performance.
+However, while Socket.IO focuses on reliability and retro-compabitibility, ws-binary focuses on performance.
 
-This library only supports browsers that support WebSockets and typed-arrays (ES5).
+This library only supports browsers that support WebSockets and typed-arrays.
 
-ws-binary is meant to be used in conjunction with a binary encoder such as [BinSON](https://github.com/RainingChain/BinSON). For even greater performance, [schema-encoder](https://github.com/RainingChain/schema-encoder) can be used to reduce the bandwidth even further.
+ws-binary is meant to be used in conjunction with a binary encoder such as [BinSON](https://github.com/RainingChain/BinSON). 
 
-#### Check inside `/example` for a full example using express, ws-binary, BinSON and schema-encoder.
+For even greater performance, you can use [schema-encoder](https://github.com/RainingChain/schema-encoder) to reduce the bandwidth.
+
+##### Check `/example` for a full example using express, ws-binary, BinSON and schema-encoder.
+
+##### Check the MMORPG [RainingChain](http://rainingchain.com/game) for a real-life application of ws-binary. 
+
 
 #### Bandwidth Comparaison:
 
@@ -26,13 +31,13 @@ ws-binary is meant to be used in conjunction with a binary encoder such as [BinS
 		}		
 	})
 	
-	Socket.IO by default: length = 104 bytes
-	
-		`42["newMonster",{"hitpoints":100,"name":"Bob","strength":30,"position":{"mapModel":11,"x":125,"y":114}}]`
-	
-	ws-binary, BinSON and schema-encoder: length = 15 bytes
-	
-		`2ÀBob__>__r_b__` or `[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158]` as binary
+Socket.IO by default: length = 104 bytes
+
+	`42["newMonster",{"hitpoints":100,"name":"Bob","strength":30,"position":{"mapModel":11,"x":125,"y":114}}]`
+
+ws-binary, BinSON and schema-encoder: length = 15 bytes
+
+	`2ÀBob__>__r_b__` or `[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158]` as binary
 
 
 
@@ -81,7 +86,7 @@ Client-side: `index.html`
 
 - `errorHandler`:`(err:Error) => void` Function triggered upon error while encoding, decoding or calling the event callback.
 
-
+Check `/example` for concret example.
 
 
 ## Encoder
@@ -90,14 +95,14 @@ The encoder must implement the functions
 
 `encode(data:any) => Buffer | Uint8Array` : Converts any object to binary. 
 
-**Important** The first byte of the binary buffer returned will be overwritten to hold the message type.
-This means, the encoder must create a buffer with 1 extra byte at the beginning and not use it.
-
 `decode(data:Buffer | Uint8Array) => any` : Converts binary into object.
 
-By default, `ws-binary` comes with a basic unefficient encoder. It is highly recommended to use a real binary such as [BinSON](https://github.com/RainingChain/BinSON).
+**Important** The first byte of the binary buffer is reserved for the event id.
+This means, the encoder must create a buffer with 1 extra byte at the beginning and not use it.
 
-The server and the client must use the same encoder.
+By default, ws-binary comes with a basic unefficient encoder. It is highly recommended to use a real binary such as [BinSON](https://github.com/RainingChain/BinSON). If using BinSON, make sure to set the option `startOffset` to 1 for the event id.
+
+Note: The server and the client must use the same encoder.
 
 
 ## Limitations
