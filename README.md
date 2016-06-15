@@ -15,10 +15,11 @@ For even greater performance, you can use [schema-encoder](https://github.com/Ra
 
 ##### Check `/example` for a full example using express, ws-binary, BinSON and schema-encoder.
 
-##### Check the MMORPG [RainingChain](http://rainingchain.com/game) for a real-life application of ws-binary. 
+##### Check the MMORPG [RainingChain](http://rainingchain.com/) for a real-life application of ws-binary. 
 
+---
 
-#### Bandwidth Comparaison:
+### Bandwidth Comparaison:
 
 	socket.emit('newMonster',{
 		hitpoints:100,
@@ -37,7 +38,11 @@ Socket.IO by default: length = 104 bytes
 
 ws-binary, BinSON and schema-encoder: length = 15 bytes
 
-	`2ÀBob__>__r_b__` or `[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158]` as binary
+	`2ÀBob__>__r_b__` 
+	
+	or 
+	
+	`[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158]` as binary
 
 
 
