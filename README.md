@@ -34,15 +34,15 @@ For even greater performance, you can use [schema-encoder](https://github.com/Ra
 	
 Socket.IO by default: length = 104 bytes
 
-	`42["newMonster",{"hitpoints":100,"name":"Bob","strength":30,"position":{"mapModel":11,"x":125,"y":114}}]`
+	42["newMonster",{"hitpoints":100,"name":"Bob","strength":30,"position":{"mapModel":11,"x":125,"y":114}}]
 
 ws-binary, BinSON and schema-encoder: length = 15 bytes
 
-	`2ÀBob__>__r_b__` 
+	2ÀBob__>__r_b__ 
 	
 	or 
 	
-	`[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158]` as binary
+	[0, 133, 50, 24, 192, 66, 111, 98, 133, 62, 138, 114, 98, 135, 158] as binary
 
 
 
