@@ -48,6 +48,8 @@ ws-binary, BinSON and schema-encoder: length = 15 bytes
 
 ## Basic Usage with Express
 
+Install `websocket` dependency via `npm install websocket`.
+
 Server-side: `app.js`
 	
 	var express = require('express');
@@ -83,7 +85,25 @@ Client-side: `index.html`
 	
 
 
-## Options for `wsBinary.init()`
+## `wsBinary.init(serv:http.Server,options?)`
+
+`serv` is a http server created via `require('http').createServer(...)`.
+
+`options`:
+
+- `encoder`: Encoder used to encode and decode the data sent. More info below.
+
+- `originIsAllowed`:`(origin:string) => boolean` Function that returns true if the connection request should be accepted.
+
+- `errorHandler`:`(err:Error) => void` Function triggered upon error while encoding, decoding or calling the event callback.
+
+Check `/example` for a concret example.
+
+## `wsBinary.connect(url:string,options?)`
+
+url is the url to the server. Ex: `'ws://localhost:4000'`
+
+`options`:
 
 - `encoder`: Encoder used to encode and decode the data sent. More info below.
 
@@ -92,6 +112,7 @@ Client-side: `index.html`
 - `errorHandler`:`(err:Error) => void` Function triggered upon error while encoding, decoding or calling the event callback.
 
 Check `/example` for concret example.
+
 
 
 ## Encoder
