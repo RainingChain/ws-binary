@@ -1,32 +1,26 @@
 {
-    "name": "BinSON",
-    "version": "0.0.1",
-    "description": "Binary Buffer Encoder for Javascript.",
-    "homepage": "https://github.com/rainingchain/schema-encoder",
-    "author": "Samuel Magnan <rainingchain@gmail.com>",
-	"contributors":[
-		"Ivo Wetzel <ivo.wetzel@googlemail.com>"
-	],
-    "keywords": [
-        "encoder",
-        "binary",
-        "javascript"
-    ],
-    
-    "engines" : {
-        "node": ">=0.8",
-        "npm": ">=1"
-    },
-    
-    "main": "bin/BinSON",
-    
-    "repository": {
-        "type" : "git",
-        "url" : "https://github.com/rainingchain/BinSON.git"
-    },
-    
-    "licenses": [{
-        "type": "MIT",
-    }]
-
+  "name": "ws-binary",
+  "version": "0.0.1",
+  "description": "Binary WebSocket Wrapper.",
+  "homepage": "https://github.com/rainingchain/ws-binary",
+  "author": "Samuel Magnan <rainingchain@gmail.com>",
+  "keywords": [
+    "ws",
+    "binary",
+    "javascript",
+    "websocket"
+  ],
+  "engines": {
+    "node": ">=0.8",
+    "npm": ">=1"
+  },
+  "main": "bin/ws-binary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rainingchain/ws-binary.git"
+  },
+  "license":"MIT",
+  "dependencies": {
+    "websocket": "^1.0.23"
+  }
 }
