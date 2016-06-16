@@ -107,8 +107,6 @@ url is the url to the server. Ex: `'ws://localhost:4000'`
 
 - `encoder`: Encoder used to encode and decode the data sent. More info below.
 
-- `originIsAllowed`:`(origin:string) => boolean` Function that returns true if the connection request should be accepted.
-
 - `errorHandler`:`(err:Error) => void` Function triggered upon error while encoding, decoding or calling the event callback.
 
 Check `/example` for concret example.
